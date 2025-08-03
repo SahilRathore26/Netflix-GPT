@@ -5,6 +5,10 @@
 - make components & utils (Body, Login, Browse, Header, Login)
 - install react-router-dom and do routing on login and Browse
 - make header, login form - signin/signup
+- check validate email/password - useRef (Hook)
+- Firebase setup
+- Deploying our app to production
+- Create SignUp user Account
 
 # Features
 
