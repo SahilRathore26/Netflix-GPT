@@ -7,11 +7,14 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { updateProfile } from "firebase/auth";
+import { USER_AVATAR } from "../utils/constants";
 
 const Login = () => {
   const [signInForm, setSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
+  const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
@@ -31,7 +34,10 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log(user);
+          updateProfile(user, {
+            displayName: name.current.value,
+            photoURL: USER_AVATAR,
+          });
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -77,11 +83,16 @@ const Login = () => {
           onSubmit={(e) => e.preventDefault()}
           className="absolute w-[480px] py-12 px-16 mt-32 justify-center bg-black bg-opacity-80 rounded-md text-white"
         >
+          <p className="test-sm text-white pb-4 w-auto">
+            ⚠️ This is a learning project built with Firebase Authentication.
+            Not affiliated with any real brand.
+          </p>
           <h1 className="font-bold text-3xl mb-5">
             {signInForm ? "Sign In" : "Sign Up"}
           </h1>
           {!signInForm && (
             <input
+              ref={name}
               type="text"
               placeholder="Enter Full Name"
               className="my-2 p-4 w-full bg-gray-700 rounded-md bg-opacity-75"

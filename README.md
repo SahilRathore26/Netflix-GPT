@@ -9,6 +9,16 @@
 - Firebase setup
 - Deploying our app to production
 - Create SignUp user Account
+- implement sign in user API
+- created redux store with userSlice
+- implemented sign out
+- update profile
+- Bugfix: sign up user display name and profile oicture update
+- Bugfix: if the user not logged in redirect /Browse page to login page and vise-versa
+- Unsubscribed to the onAuthStateChanged callback ****
+- add hardcoded values to the constants file
+- Registered TMDB API & create an app & get access tocken
+- Get data from TMDB now playing movies list API
 
 # Features
 
