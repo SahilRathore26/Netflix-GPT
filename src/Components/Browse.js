@@ -4,10 +4,12 @@ import Header from "./Header";
 import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import { USER_AVATAR } from "../utils/constants";
 import MainContainer from "./MainContainer";
-import SecondryContainer from "./SecondryContainer";
+import SecondaryContainer from "./SecondaryContainer";
+import usePopularMovies from "../hooks/usePopularMovies";
 
 const Browse = () => {
   useNowPlayingMovies();
+  usePopularMovies();
 
   const handleSignOut = () => {
     signOut(auth)
@@ -20,8 +22,8 @@ const Browse = () => {
   };
 
   return (
-    <div>
-      <div className="flex justify-between relative">
+    <div className="relative">
+      <div className="absolute w-full flex justify-between z-20">
         <div>
           <Header logoSize="w-32" marginClass="mx-4" paddingClass="p-2" />
         </div>
@@ -39,9 +41,9 @@ const Browse = () => {
           </button>
         </div>
       </div>
-      <div className="absolute top-0">
+      <div className="relative bg-neutral-900">
         <MainContainer />
-        <SecondryContainer />
+        <SecondaryContainer />
       </div>
     </div>
   );
