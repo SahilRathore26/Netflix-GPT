@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./Login";
 import Browse from "./Browse";
 import ForgotPass from "./ForgotPass";
+import GptSearch from "./GptSearch";
 
 const Body = () => {
   const appRouter = createBrowserRouter([
@@ -16,6 +17,10 @@ const Body = () => {
     {
       path: "/forgot-password",
       element: <ForgotPass />,
+    },
+    {
+      path: "/GptSearch",
+      element: <GptSearch />,
     },
   ]);
 
